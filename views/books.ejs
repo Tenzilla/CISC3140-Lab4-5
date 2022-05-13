@@ -1,0 +1,33 @@
+<%- include("_header") -%>
+
+<h1>List of Cars and Info(<%= model.length %>)</h1>
+
+<div class="table-responsive-sm">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Email</th>
+        <th>Name</th>
+        <th>Car Name</th>
+        <th class="d-print-none">
+          <a class="btn btn-sm btn-success" href="/create">Add</a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (const book of model) { %>
+        <tr>
+          <td><%= book.Email %></td>
+          <td><%= book.Name %></td>
+          <td><%= book.Make %></td>
+          <td class="d-print-none">
+            <a class="btn btn-sm btn-warning" href="/edit/<%= book.Car_ID %>">Edit</a>
+            <a class="btn btn-sm btn-danger" href="/delete/<%= book.Car_ID %>">Delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include("_footer") -%>
